@@ -1,6 +1,0 @@
-set(sabertooth_driver_SETUP_PY_VERSION "0.0.0")
-set(sabertooth_driver_SETUP_PY_SCRIPTS "")
-set(sabertooth_driver_SETUP_PY_PACKAGES "sabertooth_driver")
-set(sabertooth_driver_SETUP_PY_PACKAGE_DIRS "src/sabertooth_driver")
-set(sabertooth_driver_SETUP_PY_MODULES "")
-set(sabertooth_driver_SETUP_PY_MODULE_DIRS "")

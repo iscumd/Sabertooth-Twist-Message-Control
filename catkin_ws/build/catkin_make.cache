@@ -1,2 +1,0 @@
-sabertooth_driver
--DCATKIN_DEVEL_PREFIX=/home/ros/joystick-test/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ros/joystick-test/catkin_ws/install -G Unix Makefiles

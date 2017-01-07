@@ -1,8 +1,0 @@
-prefix=/home/ros/joystick-test/catkin_ws/devel
-
-Name: sabertooth_driver
-Description: Description of sabertooth_driver
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/ros/joystick-test/catkin_ws/devel/lib 
-Requires: 
