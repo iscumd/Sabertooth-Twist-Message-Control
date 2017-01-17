@@ -1,0 +1,8 @@
+<launch>
+
+  <node name="joy_node" pkg="joy" type="joy_node"/>
+  <node name="driver" pkg="zenith_sabertooth_driver" type="driver.py"/>
+  <remap from="cmd_vel" to="zenith/cmd_vel"/>
+  <node name="teleop_node" pkg="teleop_twist_joy" type="teleop_node"/>
+
+</launch>
