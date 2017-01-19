@@ -7,8 +7,8 @@ import numpy as np
 import tf.transformations
 from geometry_msgs.msg import Twist
 #reverse: address 128 motor 2 and address 129 motor 2
-address1 = 128
-address2 = 129
+address1 = 129
+address2 = 128
 #WHEEL_BASE = 37
 #WHEEL_RADIUS = 15
 WHEEL_BASE = 10
