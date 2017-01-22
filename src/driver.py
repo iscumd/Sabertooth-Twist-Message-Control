@@ -11,8 +11,8 @@ address1 = 129
 address2 = 128
 #WHEEL_BASE = 37
 #WHEEL_RADIUS = 15
-WHEEL_BASE = 10
-WHEEL_RADIUS = 2
+WHEEL_BASE = .61
+WHEEL_RADIUS = .53
 #function to scale values in one range to values in another range -  proportional scaling
 def pscale(x, in_min, in_max, out_min, out_max):
     return (x - in_min) * (out_max - out_min) // (in_max - in_min) + out_min
@@ -46,15 +46,15 @@ def callback(msg):
     rospy.loginfo("Twist Message")
     rospy.loginfo("Linear Components: [%f, %f, %f]"%(msg.linear.x, msg.linear.y, msg.linear.z))
     rospy.loginfo("Angular Components: [%f, %f, %f]"%(msg.angular.x, msg.angular.y, msg.angular.z))
-
-    v1 = (msg.linear.x - msg.angular.z * WHEEL_BASE / 2.0)/WHEEL_RADIUS;
-    v2 = (msg.linear.x + msg.angular.z * WHEEL_BASE / 2.0)/WHEEL_RADIUS;
+    S = 2
+    v1 = (msg.linear.x - msg.angular.z * S*WHEEL_BASE / 2.0)/WHEEL_RADIUS;
+    v2 = (msg.linear.x + msg.angular.z * S*WHEEL_BASE / 2.0)/WHEEL_RADIUS;
     print(v1) #min is -2.8 to 2.8
     print(v2)
     #to properly scale these numbers you need
     # to map the values from (-2.8,2.8) to (0,127)
-    scaledv1 = pscale(v1,-1.5,1.5,0,127)
-    scaledv2 = pscale(v2,-1.5,1.5,0,127)
+    scaledv1 = pscale(v1,-1.15,1.15,0,127)
+    scaledv2 = pscale(v2,-1.15,1.15,0,127)
     print("Right Speed: " + str(scaledv1))
     print("Left Speed: " + str(scaledv2))
     motor1speed(address1,int(round(scaledv1,2)))
