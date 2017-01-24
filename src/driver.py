@@ -53,8 +53,8 @@ def callback(msg):
     print(v2)
     #to properly scale these numbers you need
     # to map the values from (-2.8,2.8) to (0,127)
-    scaledv1 = pscale(v1,-1.15,1.15,0,127)
-    scaledv2 = pscale(v2,-1.15,1.15,0,127)
+    scaledv1 = pscale(v1,-1.5,1.5,0,127)
+    scaledv2 = pscale(v2,-1.5,1.5,0,127)
     print("Right Speed: " + str(scaledv1))
     print("Left Speed: " + str(scaledv2))
     motor1speed(address1,int(round(scaledv1,2)))
