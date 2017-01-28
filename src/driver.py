@@ -19,6 +19,10 @@ def pscale(x, in_min, in_max, out_min, out_max):
 
 def motor1speed(address,speed):
     port = serial.Serial('/dev/ttyUSB0')
+    if(speed > 127):
+        speed = 127
+    if(speed < 0):
+        speed = 0
     port.isOpen()
     command1 = 6
     command2 = 7
@@ -31,6 +35,10 @@ def motor1speed(address,speed):
 
 def motor2speed(address,speed):
     port = serial.Serial('/dev/ttyUSB0')
+    if(speed > 127):
+        speed = 127
+    if(speed < 0):
+        speed = 0
     port.isOpen()
     command1 = 6
     command2 = 7
@@ -46,7 +54,7 @@ def callback(msg):
     rospy.loginfo("Twist Message")
     rospy.loginfo("Linear Components: [%f, %f, %f]"%(msg.linear.x, msg.linear.y, msg.linear.z))
     rospy.loginfo("Angular Components: [%f, %f, %f]"%(msg.angular.x, msg.angular.y, msg.angular.z))
-    S = 2
+    S = 3
     v1 = (msg.linear.x - msg.angular.z * S*WHEEL_BASE / 2.0)/WHEEL_RADIUS;
     v2 = (msg.linear.x + msg.angular.z * S*WHEEL_BASE / 2.0)/WHEEL_RADIUS;
     print(v1) #min is -2.8 to 2.8
